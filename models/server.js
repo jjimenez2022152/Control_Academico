@@ -7,6 +7,7 @@ class Server{
     constructor(){
         this.app = express();
         this.port = process.env.PORT;
+        this.alumnoPath = '/api/alumnos';
 
 
         this.conectarDB();
@@ -25,7 +26,8 @@ class Server{
     }
 
     routes(){
-        //Agregar mis rutas 
+        //Agregar mis rutas
+        this.app.use(this.alumnoPath, require('../routes/alumno.routes')); 
     }
 
 

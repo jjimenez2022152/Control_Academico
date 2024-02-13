@@ -3,8 +3,8 @@ const Alumno = require('../models/alumno');
 const { response } = require('express');
 
 const alumnosPost = async (req, res) => {
-    const { nombre, correo, password, role, cursos} = req.body;
-    const alumno = new Alumno({ nombre, correo, password, role, cursos });
+    const { nombre, correo, password, role } = req.body;
+    const alumno = new Alumno({ nombre, correo, password, role });
 
     const salt = bcryptjs.genSaltSync();
     alumno.password = bcryptjs.hashSync(password, salt);
