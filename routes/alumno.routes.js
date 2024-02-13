@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
-const { alumnosPost } = require('../controller/alumno.controller');
+const { alumnosPost, alumnosGet } = require('../controller/alumno.controller');
 const router = Router();
 
 router.post(
@@ -13,7 +13,14 @@ router.post(
         check("role"),
         //validarCampos
     ], alumnosPost
-)
+);
 
+router.get("/", alumnosGet);
+
+// router.put(
+//     "/:id",
+//     [
+
+//     ], alumnosPut);
 
 module.exports = router
