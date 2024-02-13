@@ -22,7 +22,12 @@ const UsuarioSchema = Schema({
     google:{
         type: Boolean,
         default: false
-    }   
+    },
+    cursos:{
+        type: [String],
+        default: []
+    }
+
 });
 
 AlumnoSchema.methods.toJSON = function(){
