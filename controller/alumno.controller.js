@@ -46,7 +46,28 @@ const alumnosPut = async (req, res = response) => {
     const alumno = Alumno.findOne({id});
 
     res.status(200).json({
-        msg: 'Usuario Actualizado Exitosamente!!!',
+        msg: 'alumno Actualizado Exitosamente!!!',
+        alumno
+    });
+}
+
+const alumnosDelete = async (req, res) => {
+    const {id} = req.params;
+    const alumno = await Alumno.findByIdAndUpdate(id, {estado: false});
+    const alumnoAutenticado = req.alumno;
+
+    res.status(200).json({
+        msg: 'Alumno a eliminar',
+        alumno,
+        alumnoAutenticado
+    });
+}
+
+const getAlumnoById = async (req, res) => {
+    const {id} = req.params;
+    const alumno = await Alumno.findOne({_id: id});
+
+    res.status(200).json({
         alumno
     });
 }
@@ -54,5 +75,7 @@ const alumnosPut = async (req, res = response) => {
 module.exports = {
     alumnosPost,
     alumnosGet,
-    alumnosPut  
+    alumnosPut,
+    alumnosDelete,
+    getAlumnoById
 }
