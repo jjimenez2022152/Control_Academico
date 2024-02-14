@@ -9,6 +9,7 @@ class Server{
         this.port = process.env.PORT;
         this.alumnoPath = '/api/alumnos';
         this.maestroPath = '/api/maestros';
+        this.authPath = '/api/auth'
 
 
         this.conectarDB();
@@ -30,6 +31,7 @@ class Server{
         //Agregar mis rutas
         this.app.use(this.alumnoPath, require('../routes/alumno.routes')); 
         this.app.use(this.maestroPath, require('../routes/maestro.routes'));
+        this.app.use(this.authPath, require('../routes/auth.routes'));
     }
 
 
