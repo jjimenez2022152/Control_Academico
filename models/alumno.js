@@ -16,7 +16,6 @@ const AlumnoSchema = Schema({
     },
     role:{
         type: String,
-        require: true,
         default: "STUDENT_ROLE"
     },
     estado:{
