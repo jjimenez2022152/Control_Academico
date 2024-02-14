@@ -9,7 +9,7 @@ const esRoleValido = async (role = '') => {
 }
 
 const existenteEmail = async (correo = '') => {
-    const existeEmail = await Usuario.findOne({correo});
+    const existeEmail = await Alumno.findOne({correo});
     if(existeEmail){
         throw new Error(`El correo ${ correo } ya está registrado`);
     }

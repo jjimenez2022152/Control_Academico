@@ -34,16 +34,16 @@ const maestrosGet = async (req, res = response) => {
 
 const maestrosPut = async (req, res = response) => {
     const { id } = req.params;
-    const {_id, password, estado, correo, ...resto } = req.body;
+    const {_id, password,  correo,  ...resto } = req.body;
 
     if(password){
         const salt = bcryptjs.genSaltSync();
         resto.password = bcryptjs.hashSync(password, salt);
     }
 
-    await Maestro.findByIdAndUpdate(id, resto);
+    const maestro =  await Maestro.findByIdAndUpdate(id, resto);
 
-    const maestro = Maestro.findOne({id});
+    
 
     res.status(200).json({
         msg: 'maestro Actualizado Exitosamente!!!',

@@ -34,16 +34,15 @@ const alumnosGet = async (req, res = response) => {
 
 const alumnosPut = async (req, res = response) => {
     const { id } = req.params;
-    const {_id, password, estado, correo, ...resto } = req.body;
+    const {_id, password,  correo,  ...resto } = req.body;
 
     if(password){
         const salt = bcryptjs.genSaltSync();
         resto.password = bcryptjs.hashSync(password, salt);
     }
 
-    await Alumno.findByIdAndUpdate(id, resto);
+    const alumno = await Alumno.findByIdAndUpdate(id, resto);
 
-    const alumno = Alumno.findOne({id});
 
     res.status(200).json({
         msg: 'alumno Actualizado Exitosamente!!!',
