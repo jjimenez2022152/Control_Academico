@@ -28,7 +28,12 @@ const existeAsignacionMaestroCurso = async (maestroId, cursoId) => {
     return asignacion !== null;
 };
 //--------------------------------------------------------------------------------------
-
+const existeCursoById = async (id = '') => {
+    const existeCurso = await Curso.findOne({id});
+    if(existeCurso){
+        throw new Error(`el id ${id} no pertenece a un curso`)
+    }
+}
 
 const existeAlumnoById = async (id = '') => {
     const existeAlumno = await Alumno.findOne({id});
@@ -37,12 +42,7 @@ const existeAlumnoById = async (id = '') => {
     }
 }
 
-const existeCursoById = async (id = '') => {
-    const existeCurso = await Curso.findOne({id});
-    if(existeCurso){
-        throw new Error(`el id ${id} no pertenece a un curso`)
-    }
-}
+
 
 const existeAsignacionAlumnoCurso = async (alumnoId, cursoId) => {
     const asignacion = await Alumno.findOne({ _id: alumnoId, curso: cursoId });
