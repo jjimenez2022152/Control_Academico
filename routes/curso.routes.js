@@ -10,8 +10,8 @@ const {
     getCursoById,
     putCursos,
     cursosDelete} = require('../controllers/curso.controller');
-//const { existeCursoById } = require('../helpers/db-validators');
-//const { esTeacherRole, tieneRolAutorizado } = require('../middlewares/validar-roles');
+const { existeCursoById } = require('../helpers/db-validators');
+const { esTeacherRol, tieneRolAutorizado } = require('../middlewares/validar-roles');
 
 
 const router = Router();
