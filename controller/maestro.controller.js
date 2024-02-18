@@ -46,7 +46,7 @@ const maestrosPut = async (req, res = response) => {
     
 
     res.status(200).json({
-        msg: 'maestro Actualizado Exitosamente!!!',
+        msg: 'maestro Actualizado',
         maestro
     });
 }

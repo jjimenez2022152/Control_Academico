@@ -24,7 +24,7 @@ const existeMaestroById = async (id = '') => {
     }
 }
 
-const existeAsignacionMaestroCurso = async (maestroId, cursoId) => {
+const existeAsignaMaesCurso = async (maestroId, cursoId) => {
     const asignacion = await Maestro.findOne({ _id: maestroId, curso: cursoId });
     return asignacion !== null;
 };
@@ -36,6 +36,8 @@ const existeCursoById = async (id = '') => {
     }
 }
 
+
+
 const existeAlumnoById = async (id = '') => {
     const existeAlumno = await Alumno.findOne({id});
     if(existeAlumno){
@@ -45,25 +47,33 @@ const existeAlumnoById = async (id = '') => {
 
 
 
-const existeAsignacionAlumnoCurso = async (alumnoId, cursoId) => {
+const existeAsignaAlumCurso = async (alumnoId, cursoId) => {
     const asignacion = await Alumno.findOne({ _id: alumnoId, curso: cursoId });
     return asignacion !== null;
 };
 
-const existeEmailA = async (correo = '') => {
+const existeEmailAlumno = async (correo = '') => {
     const existeEmailA = await Alumno.findOne({correo});
     if(existeEmailA){
         throw new Error(`El correo ${ correo } ya esta registrado`);
     }
 }
 
+const existeCursoByIdA = async (cursoId) => {
+    const curso = await Curso.findById(cursoId);
+    if (!curso || curso.eliminado) {
+        throw new Error(`El curso con el ID ${cursoId} no existe o ha sido eliminado`);
+    }
+};
+
 module.exports = {
     esRoleValido,
     existenteEmail,
     existeMaestroById,
     existeCursoById,
-    existeEmailA,
+    existeEmailAlumno,
     existeAlumnoById,
-    existeAsignacionAlumnoCurso,
-    existeAsignacionMaestroCurso
+    existeAsignaAlumCurso,
+    existeAsignaMaesCurso,
+    existeCursoByIdA
 }
