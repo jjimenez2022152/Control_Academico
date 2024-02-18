@@ -22,9 +22,9 @@ const AlumnoSchema = Schema({
         type: Boolean,
         default: true
     },
-    cursos:{
-        type: [String],
-        default: []
+    curso: {
+        type: [Schema.Types.ObjectId],
+        ref: 'Curso' 
     }
 
 });

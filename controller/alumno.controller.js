@@ -39,22 +39,29 @@ const alumnosPut = async (req, res = response) => {
     const { curso, ...resto } = req.body;
 
     try {
-
+        /* Verificar si curso está definido */
+        if (!curso) {
+            return res.status(400).json({ error: 'El campo "curso" no está definido en la solicitud' });
+        }
+    
+        /* Ver si los IDs enviados existen en la entidad de cursos */
         const cursosExistentes = await Curso.find({ _id: { $in: curso } });
         if (cursosExistentes.length !== curso.length) {
             return res.status(400).json({ error: 'Uno o más cursos no existen en la base de datos' });
         }
-
+    
         const alumno = await Alumno.findByIdAndUpdate(id, { ...resto, curso });
-
+    
         res.status(200).json({
-            msg: 'Alumno Actualizado',
+            msg: '¡Alumno actualizado exitosamente!',
             alumno
         });
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: 'Error al actualizar el alumno' });
     }
+    
+    
 }
 
 const alumnosDelete = async (req, res) => {
