@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
 const Maestro = require('../models/maestro');
-const Alumno = require('../models/alumno');
 const { request, response } = require('express');
 
 const validarJWT = async(req = request, res = response, next)=> {

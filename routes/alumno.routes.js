@@ -29,6 +29,15 @@ router.get(
     [
         check('id', 'No es un id válido').isMongoId(),
         check('id').custom(existeAlumnoById),
+        check("curso", "No puedes asignarte a más de 3 cursos").isArray({max: 3}),
+        check('curso.*').custom(async (cursoId, { req }) => {
+                const alumnoId = req.params.id;
+                /* Verificamos ssi el alumno ya esta asignado a los cursos */
+                if (await existeAsignacionAlumnoCurso(alumnoId, cursoId)) {
+                    throw new Error('El alumno ya está asignado al curso proporcionado');
+                }
+                return true;
+            }),
         validarCampos
     ], getAlumnoById);
 

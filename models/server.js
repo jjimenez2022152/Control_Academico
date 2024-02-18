@@ -9,7 +9,8 @@ class Server{
         this.port = process.env.PORT;
         this.alumnoPath = '/api/alumnos';
         this.maestroPath = '/api/maestros';
-        this.authPath = '/api/auth'
+        this.authPath = '/api/auth';
+        this.cursosPath = '/api/cursos';
 
 
         this.conectarDB();
@@ -32,6 +33,7 @@ class Server{
         this.app.use(this.alumnoPath, require('../routes/alumno.routes')); 
         this.app.use(this.maestroPath, require('../routes/maestro.routes'));
         this.app.use(this.authPath, require('../routes/auth.routes'));
+        this.app.use(this.cursosPath, require('../routes/curso.routes'));
     }
 
 

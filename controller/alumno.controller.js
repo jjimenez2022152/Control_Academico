@@ -1,5 +1,7 @@
 const bcryptjs = require('bcryptjs');
 const Alumno = require('../models/alumno');
+const Curso = require('../models/curso');
+
 const { response } = require('express');
 
 const alumnosPost = async (req, res) => {
@@ -34,20 +36,25 @@ const alumnosGet = async (req, res = response) => {
 
 const alumnosPut = async (req, res = response) => {
     const { id } = req.params;
-    const {_id, password,  correo,  ...resto } = req.body;
+    const { curso, ...resto } = req.body;
 
-    if(password){
-        const salt = bcryptjs.genSaltSync();
-        resto.password = bcryptjs.hashSync(password, salt);
+    try {
+
+        const cursosExistentes = await Curso.find({ _id: { $in: curso } });
+        if (cursosExistentes.length !== curso.length) {
+            return res.status(400).json({ error: 'Uno o más cursos no existen en la base de datos' });
+        }
+
+        const alumno = await Alumno.findByIdAndUpdate(id, { ...resto, curso });
+
+        res.status(200).json({
+            msg: 'Alumno Actualizado',
+            alumno
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Error al actualizar el alumno' });
     }
-
-    const alumno = await Alumno.findByIdAndUpdate(id, resto);
-
-
-    res.status(200).json({
-        msg: 'alumno Actualizado Exitosamente!!!',
-        alumno
-    });
 }
 
 const alumnosDelete = async (req, res) => {
