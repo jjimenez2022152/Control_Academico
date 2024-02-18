@@ -3,8 +3,8 @@ const { response, request } = require('express');
 const Maestro = require('../models/maestro');
 
 const cursosPost = async (req, res) => {
-    const {nombre, descripcion, modalidad} = req.body;
-    const curso = new Curso({nombre, descripcion, modalidad});
+    const {nombre, descripcion} = req.body;
+    const curso = new Curso({nombre, descripcion});
 
     await curso.save();
     res.status(202).json({
@@ -33,10 +33,10 @@ const cursosGet = async (req, res = response) => {
 
 const getCursoById = async (req, res) => {
     const {id} = req.params;
-    const curso = await Curso.find({_id: id});
+    const cursos = await Curso.find({_id: id});
 
     res.status(200).json({
-        curso
+        cursos
     });
 }
 
@@ -49,7 +49,7 @@ const putCursos = async (req, res = response) => {
     const curso = await Curso.findByIdAndUpdate(id, resto);
 
     res.status(200).json({
-        msg: 'Curso Actualizado Exitosamente!!!',
+        msg: 'Curso Actualizado',
         curso
     })
 }
