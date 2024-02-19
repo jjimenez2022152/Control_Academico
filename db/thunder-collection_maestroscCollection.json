@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "maestroscCollection",
-    "dateExported": "2024-02-18T08:00:12.617Z",
+    "dateExported": "2024-02-19T05:05:27.129Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -14,12 +14,12 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-02-18T03:31:52.338Z",
-            "modified": "2024-02-18T07:45:56.577Z",
+            "modified": "2024-02-19T04:44:44.484Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nombre\": \"MAESTRO10\",\n  \"correo\": \"maestro10@gmail.com\",\n  \"password\": \"123456\"\n}",
+                "raw": "{\n  \"nombre\": \"MAESTRO25\",\n  \"correo\": \"maestro25@gmail.com\",\n  \"password\": \"123456\"\n}",
                 "form": []
             },
             "tests": []
@@ -70,17 +70,36 @@
             "_id": "da07bdb8-df15-4fb9-bb74-8c19dd7b6739",
             "colId": "133ea9b0-51d7-4079-8506-953a423d70ab",
             "containerId": "",
-            "name": "maestrosPut",
-            "url": "http://localhost:3000/api/maestros/65cd143922c2a65a33bd7614",
+            "name": "maestrosPutCursosMaestro",
+            "url": "http://localhost:3000/api/maestros/65d2dcbc3c6a7a2dac50e0ce",
             "method": "PUT",
             "sortNum": 50000,
             "created": "2024-02-18T03:31:52.342Z",
-            "modified": "2024-02-18T07:52:29.884Z",
+            "modified": "2024-02-19T04:54:42.504Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nombre\": \"MaestroCarlito2\"\n}",
+                "raw": "{\n  \"cursos\": \"65d2dd1e3c6a7a2dac50e0d3\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "acf8ad88-ceba-4ec8-94db-b1ecd7646bbb",
+            "colId": "133ea9b0-51d7-4079-8506-953a423d70ab",
+            "containerId": "",
+            "name": "maestrosPut",
+            "url": "http://localhost:3000/api/maestros/65d2dcbc3c6a7a2dac50e0ce",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2024-02-19T04:55:30.307Z",
+            "modified": "2024-02-19T04:56:39.180Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"MAISTRO\"\n}",
                 "form": []
             },
             "tests": []

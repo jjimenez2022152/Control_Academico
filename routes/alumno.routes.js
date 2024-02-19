@@ -27,14 +27,11 @@ router.put(
         check("curso", "El límite de cursos a los cuales puedes asignarte es de 3").isArray({ max: 3 }),
         check('curso.*').custom(async (cursoId) => {
             if (!cursoId) {
-                // Si el ID del curso no está definido, se considera válido
+
                 return true;
             }
-        
-            // Verificar si el curso existe y no ha sido eliminado en la base de datos
             await existeCursoByIdA(cursoId);
-        
-            // Si el curso existe y no ha sido eliminado, se considera válido
+    
             return true;
         }),
         check('curso.*').custom(async (cursoId, { req }) => {
@@ -58,8 +55,6 @@ router.get(
 router.delete(
     "/:id",
     [
-        //esAdminRole,
-        //tieneRolAutorizado('ADMIN_ROLE','SUPER_ROLE'),
         check('id', 'No es un id válido').isMongoId(),
         check('id').custom(existeAlumnoById),
         validarCampos

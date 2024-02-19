@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "cursosCollection",
-    "dateExported": "2024-02-18T08:00:17.745Z",
+    "dateExported": "2024-02-19T05:05:36.369Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -14,17 +14,17 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-02-18T04:45:31.955Z",
-            "modified": "2024-02-18T06:21:11.380Z",
+            "modified": "2024-02-19T04:46:22.434Z",
             "headers": [
                 {
                     "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWNjNjcxNDk1ZGNiYTQyYjc0ODY3MjAiLCJpYXQiOjE3MDgyMzcxNDksImV4cCI6MTcwODI0MDc0OX0.w_tviPG1LXMSVObQPFlWT4zf9LkZKtdzF3pzfludGI8"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWQyZGNiYzNjNmE3YTJkYWM1MGUwY2UiLCJpYXQiOjE3MDgzMTc5MjMsImV4cCI6MTcwODMyMTUyM30.2KhKuinC4C1tQm4nBaMwsdS_nhknZgRSI2eLLj1BGzM"
                 }
             ],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nombre\": \"Literatura\",\n  \"descripcion\": \"Introduccion a la Literatura\"\n}",
+                "raw": "{\n  \"nombre\": \"Laboratorio de Matematica\",\n  \"descripcion\": \"Introduccion al mundo matematico\"\n}",
                 "form": []
             },
             "tests": []
@@ -48,11 +48,11 @@
             "colId": "ddd1baf6-d226-470f-b2e5-ca4a0704bc7e",
             "containerId": "",
             "name": "cursoGetById",
-            "url": "http://localhost:3000/api/cursos/65d192335f356384329a15d8",
+            "url": "http://localhost:3000/api/cursos/65d1c22debd428713bfe1dca",
             "method": "GET",
             "sortNum": 30000,
             "created": "2024-02-18T06:22:28.130Z",
-            "modified": "2024-02-18T07:01:09.550Z",
+            "modified": "2024-02-18T09:00:27.468Z",
             "headers": [],
             "params": [],
             "tests": []
@@ -86,15 +86,15 @@
             "colId": "ddd1baf6-d226-470f-b2e5-ca4a0704bc7e",
             "containerId": "",
             "name": "cursosDelete",
-            "url": "http://localhost:3000/api/cursos/65d1a1d744a6413297855e4f",
+            "url": "http://localhost:3000/api/cursos/65d1c22debd428713bfe1dca",
             "method": "DELETE",
             "sortNum": 50000,
             "created": "2024-02-18T06:57:08.641Z",
-            "modified": "2024-02-18T06:58:35.647Z",
+            "modified": "2024-02-18T08:57:15.788Z",
             "headers": [
                 {
                     "name": "x-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWNjNjcxNDk1ZGNiYTQyYjc0ODY3MjAiLCJpYXQiOjE3MDgyMzk1MDQsImV4cCI6MTcwODI0MzEwNH0.iTRs4qUNNIhbg_WHCxLzFeuSnklY3JwQH1QJY9XuRsA"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWNjNjcxNDk1ZGNiYTQyYjc0ODY3MjAiLCJpYXQiOjE3MDgyNDY2MDIsImV4cCI6MTcwODI1MDIwMn0.g4pNaUFXirkjVMtG1HGqzWmXKKnc1810WViKqWlRExg"
                 }
             ],
             "params": [],

@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "alumnosCollection",
-    "dateExported": "2024-02-18T07:59:47.272Z",
+    "dateExported": "2024-02-19T05:05:11.498Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -14,12 +14,12 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-02-18T03:31:40.847Z",
-            "modified": "2024-02-18T07:20:44.497Z",
+            "modified": "2024-02-19T04:43:53.348Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nombre\": \"test20\",\n  \"correo\": \"test20@gmail.com\",\n  \"password\": \"123456\"\n}",
+                "raw": "{\n  \"nombre\": \"test50\",\n  \"correo\": \"test50@gmail.com\",\n  \"password\": \"123456\"\n}",
                 "form": []
             },
             "tests": []
@@ -43,16 +43,16 @@
             "colId": "d0195cb7-b901-4cb3-9714-3957f24ed843",
             "containerId": "",
             "name": "alumnosAsignarCursoByIdPUT",
-            "url": "http://localhost:3000/api/alumnos/65cc4c12ea28016e996eb0a4",
+            "url": "http://localhost:3000/api/alumnos/65d1ca26ef24c7ffb80ae750",
             "method": "PUT",
             "sortNum": 30000,
             "created": "2024-02-18T03:31:40.849Z",
-            "modified": "2024-02-18T07:40:15.576Z",
+            "modified": "2024-02-19T04:44:32.302Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"curso\": [\"65d1a1c944a6413297855e4c\"]\n}",
+                "raw": "{\n  \"curso\": [\"65d1c21bebd428713bfe1dc7\"]\n}",
                 "form": []
             },
             "tests": []
@@ -76,11 +76,11 @@
             "colId": "d0195cb7-b901-4cb3-9714-3957f24ed843",
             "containerId": "",
             "name": "alumnosGetById",
-            "url": "http://localhost:3000/api/alumnos/65cc54edc3fc181d01b9b378",
+            "url": "http://localhost:3000/api/alumnos/65d1ca26ef24c7ffb80ae750",
             "method": "GET",
             "sortNum": 50000,
             "created": "2024-02-18T03:31:40.851Z",
-            "modified": "2024-02-18T03:31:40.851Z",
+            "modified": "2024-02-18T09:14:14.487Z",
             "headers": [],
             "params": [],
             "tests": []
