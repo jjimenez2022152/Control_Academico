@@ -1,5 +1,5 @@
 const esTeacherRole = (req, res, next) => {
-    if (!req.maestro && !req.alumno) {
+    if (!req.usuario) {
         return res.status(500).json({
             msg: "Se desea validar un usuario sin validar token primero"
         });
@@ -15,11 +15,28 @@ const esTeacherRole = (req, res, next) => {
     next();
 }
 
+const esAlumnoRole = (req, res, next) => {
+    if(!req.usuario){
+        return res.status(500).json({
+            msg: "Se requiere iniciar sesion para hacer esta accion"
+        });
+    }
+
+    const { role, nombre } =  req.usuario;
+
+    if(role !== "STUDENT_ROLE"){
+        return res.status(401).json({
+            msg: `${nombre} No tiene acceso porque no es un Alumno`
+        });
+    };
+    next();
+}
+
 const tieneRolAutorizado = (...roles) => {
     return (req, res, next) => {
-        if (!req.maestro && !req.alumno) {
+        if (!req.usuario) {
             return res.status(500).json({
-                msg: "Se desea validar un usuario sin validar token primero"
+                msg: "Se desea validar un usuario sin validar token primero  rat"
             });
         }
 
@@ -36,5 +53,6 @@ const tieneRolAutorizado = (...roles) => {
 
 module.exports = {
     esTeacherRole,
-    tieneRolAutorizado
+    tieneRolAutorizado,
+    esAlumnoRole
 }

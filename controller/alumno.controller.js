@@ -35,31 +35,22 @@ const alumnosGet = async (req, res = response) => {
 }
 
 const alumnosPut = async (req, res = response) => {
-    const { id } = req.params;
-    const { curso, ...resto } = req.body;
-
-    try {
-        if (!curso) {
-            return res.status(400).json({ error: 'Parece que no ha definido CURSO en su solicitud' });
-        }
-        const cursosExistentes = await Curso.find({ _id: { $in: curso } });
-        if (cursosExistentes.length !== curso.length) {
-            return res.status(400).json({ error: 'Uno de sus cursos o todos no estan registrados en la Base de datos' });
-        }
+    const {id} = req.usuario;
+    const {_id, password, correo, ...resto} = req.body;
     
-        const alumno = await Alumno.findByIdAndUpdate(id, { ...resto, curso });
-    
-        res.status(200).json({
-            msg: 'Alumno actualizado',
-            alumno
-        });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ error: 'Error al actualizar el Alumno' });
+    if(password){
+        const salt = bcryptjs.genSaltSync();
+        resto.password = bcryptjs.hashSync(password, salt);
     }
-    
-    
+
+    const alumno = await Alumno.findByIdAndUpdate(id, resto, { new: true });
+
+    res.status(200).json({
+        msg: 'Tu perfil se ha actualizado',
+        alumno
+    });
 }
+
 
 const alumnosDelete = async (req, res) => {
     const {id} = req.params;

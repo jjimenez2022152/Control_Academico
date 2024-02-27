@@ -14,7 +14,12 @@ const CursoSchema = Schema({
     estado:{
         type: Boolean,
         default: true
-    }
+    },
+    maestro:{
+        type: Schema.Types.ObjectId,
+        ref: 'maestro',
+        require: [true, 'El id del maestro es obligatorio']
+    },
 
 });
 

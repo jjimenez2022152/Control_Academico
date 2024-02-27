@@ -41,8 +41,7 @@ const maestrosPut = async (req, res = response) => {
         resto.password = bcryptjs.hashSync(password, salt);
     }
 
-    const maestro =  await Maestro.findByIdAndUpdate(id, resto);
-
+    const maestro = await Maestro.findByIdAndUpdate(id, resto, { new: true });
     
 
     res.status(200).json({

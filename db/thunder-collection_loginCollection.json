@@ -1,25 +1,25 @@
 {
     "client": "Thunder Client",
     "collectionName": "loginCollection",
-    "dateExported": "2024-02-19T05:05:17.649Z",
+    "dateExported": "2024-02-27T23:26:12.085Z",
     "version": "1.1",
     "folders": [],
     "requests": [
         {
-            "_id": "1b4873aa-df86-4cec-a78a-5904bf3369ea",
-            "colId": "533b9bda-2e02-4b2a-8125-3e4412ee67a5",
+            "_id": "4dc1a6e8-48dc-49ed-91f2-0b34694f543d",
+            "colId": "4608c446-46e3-493e-8a50-ec17aea9288f",
             "containerId": "",
             "name": "loginPost",
             "url": "http://localhost:3000/api/auth/login",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2024-02-18T03:31:45.785Z",
-            "modified": "2024-02-19T04:45:23.177Z",
+            "created": "2024-02-27T19:08:07.634Z",
+            "modified": "2024-02-27T22:48:52.549Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"correo\": \"maestro25@gmail.com\",\n  \"password\": \"123456\"\n}",
+                "raw": "{\n  \"correo\": \"test55@gmail.com\",\n  \"password\": \"123456\"\n}",
                 "form": []
             },
             "tests": []
